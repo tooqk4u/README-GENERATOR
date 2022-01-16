@@ -11,7 +11,7 @@ const licenseLinks = {
   "MIT": "https://opensource.org/licenses/MIT",
   "Apache": "https://opensource.org/licenses/Apache-2.0",
   "Mozilla": "https://opensource.org/licenses/MPL-2.0",
-  "Unlicense": "http://unlicense.org/"
+  "none": "http://unlicense.org/"
 };
 
 

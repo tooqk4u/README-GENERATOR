@@ -8,7 +8,7 @@ const questions = [
   {
     type: "input",
     name: "github",
-    message: "What is your GitHub Username?",
+    message: "What is your GitHub Username? (Required)",
     validate: (githubInput) => {
       if (githubInput) {
         return true;
@@ -32,9 +32,23 @@ const questions = [
     },
   },
   {
+    type: 'input',
+    name: 'link',
+    message: 'Enter the GitHub link to your application. (Please use full URL link including HTTPS://) (Required)',
+    validate: linkInput => {
+        if (linkInput){
+            return true
+        } else {
+            console.log('Please enter a GitHub link.')
+            return false
+        }
+    }
+
+},
+  {
     type: "input",
     name: "description",
-    message: "Provide a description of the project.",
+    message: "Provide a description of the project. (Required)",
     validate: (descriptionInput) => {
       if (descriptionInput) {
         return true;
@@ -54,7 +68,7 @@ const questions = [
   {
     type: "input",
     name: "installation",
-    message: "What are the steps required to install your project?",
+    message: "What are the steps required to install your project? (Required)",
     when: ({ confirmInstallation }) => {
       if (confirmInstallation) {
         return true;
@@ -74,7 +88,7 @@ const questions = [
     type: "input",
     name: "usage",
     message:
-      "Provide instructions and examples on how to use your project. Include scrrenshots as needed.",
+      "Provide instructions and examples on how to use your project. Include scrrenshots as needed.(Required)",
     when: ({ confirmUsage }) => {
       if (confirmUsage) {
         return true;
@@ -112,11 +126,12 @@ const questions = [
   {
     type: "input",
     name: "testing",
-    message: "Type the command to run your test:",
+    message: "Type the command to run your test: (Required)",
     when: ({ confirmTesting }) => {
       if (confirmTesting) {
         return true;
       } else {
+        console.log("Please enter how to test the application.")
         return false;
       }
     },
@@ -131,7 +146,7 @@ const questions = [
   {
     type: "confirm",
     name: "confirmEmail",
-    message: "Would you like include your email?",
+    message: "Would you like include your email? (Required)",
     when: ({ confirmQuestions }) => {
       if (confirmQuestions) {
         return true;
@@ -144,7 +159,6 @@ const questions = [
   {
     type: "input",
     name: "email",
-    message: "What is your email address?",
     when: ({ confirmEmail }) => {
       if (confirmEmail) {
         return true;
@@ -180,8 +194,11 @@ const questions = [
   },
 ];
 
+
 //  function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFileSync(fileName, data);
+}
 
 
 // function to initialize app
