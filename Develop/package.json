@@ -1,14 +1,22 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "tooqk4u",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^8.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tooqk4u/README-GENERATOR.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tooqk4u/README-GENERATOR/issues"
+  },
+  "homepage": "https://github.com/tooqk4u/README-GENERATOR#readme",
+  "description": ""
 }
