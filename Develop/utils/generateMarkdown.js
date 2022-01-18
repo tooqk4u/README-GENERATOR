@@ -3,7 +3,7 @@ const badges = {
   "MIT": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   "Apache": "[![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
   "Mozilla": "[![License: Mozilla](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
-  "Unlicense": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
+  "none": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
 };
 
 // create const for license sites
@@ -15,20 +15,82 @@ const licenseLinks = {
 };
 
 
-// function that returns a license badge based on which license is passed in if there is no license, an empty string is returned
-function renderLicenseBadge(license) {}
 
-// Create a function that returns the license link if there is no license, an empty string is returned
-function renderLicenseLink(license) {}
+// function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge(license) {
+  if (license =="none") {
+    return ""    
+  } else if(license == "Apache" || "Mozilla" || "MIT"){
+  return badges[license]
+  };
+}
 
-// function that returns the license section of README if there is no license, an empty string is returned
-function renderLicenseSection(license) {}
+// functions to create a license link
+function renderLicenseLink(license) {
+  return licenseLinks[license]
+}
 
-//  function to generate markdown for README
+// function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+  ${badges[data.license]}
+  
+## Description 
+  
+${data.description}
+  
+## Table of Contents (Optional)
+
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+* [Credit](#credit)
+
+
+## Installation
+
+${data.installation}
+
+## Usage
+
+${data.usage}
+
+
+## License
+
+This license is covered under: ${renderLicenseBadge
+(data.license) + renderLicenseLink(data.license)}
+
+
+## Contributing
+
+${data.contributing}
+
+## Tests
+
+${data.testing}
+
+## Questions
+
+If you have any questions, I can be reached by email
+[${data.email}](mailto:${data.email}) 
+or 
+follow the 
+link to my github profile
+[${data.github}](https://github.com/${data.github}).
+
+## Contributors
+
+ Credits: ${data.contributors}
+
 
 `;
 }
+
 
 module.exports = generateMarkdown;

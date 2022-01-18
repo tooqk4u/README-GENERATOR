@@ -21,7 +21,7 @@ const questions = [
   {
     type: "input",
     name: "title",
-    message: "What is the title of your project?",
+    message: "What is the title of your project? (Required)",
     validate: (titleInput) => {
       if (titleInput) {
         return true;
@@ -34,7 +34,7 @@ const questions = [
   {
     type: 'input',
     name: 'link',
-    message: 'Enter the GitHub link to your application. (Please use full URL link including HTTPS://) (Required)',
+    message: 'Enter the GitHub link to your application.(Required)',
     validate: linkInput => {
         if (linkInput){
             return true
@@ -107,7 +107,7 @@ const questions = [
   {
     type: "input",
     name: "contributing",
-    message: "What are the contribution guidelines for your project?",
+    message: "What are the contribution guidelines for your project? (Required)",
     when: ({ confirmContributing }) => {
       if (confirmContributing) {
         return true;
@@ -177,13 +177,13 @@ const questions = [
     type: "confirm",
     name: "confirmContributors",
     message:
-      'Would you like to add contributors to this project in a "Contributors" section?',
+      'Would you like to add credits for the project?',
     default: false,
   },
   {
     type: "input",
-    name: "contributors",
-    message: "Enter a contributors name.",
+    name: "credit",
+    message: "Enter a name to give the person credit for contributing.",
     when: ({ confirmContributors }) => {
       if (confirmContributors) {
         return true;
@@ -198,6 +198,7 @@ const questions = [
 //  function to write README file
 function writeToFile(fileName, data) {
   fs.writeFileSync(fileName, data);
+  console.log("README completed!")
 }
 
 
