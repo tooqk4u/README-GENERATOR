@@ -3,7 +3,8 @@ const badges = {
   "MIT": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   "Apache": "[![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
   "Mozilla": "[![License: Mozilla](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
-  "none": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
+  "Unlicensed": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
+  "none": ""
 };
 
 // create const for license sites
@@ -11,7 +12,7 @@ const licenseLinks = {
   "MIT": "https://opensource.org/licenses/MIT",
   "Apache": "https://opensource.org/licenses/Apache-2.0",
   "Mozilla": "https://opensource.org/licenses/MPL-2.0",
-  "none": "http://unlicense.org/"
+  "Unlicensed": "http://unlicense.org/"
 };
 
 
@@ -21,7 +22,7 @@ const licenseLinks = {
 function renderLicenseBadge(license) {
   if (license =="none") {
     return ""    
-  } else if(license == "Apache" || "Mozilla" || "MIT"){
+  } else if(license == "Apache" || "Mozilla" || "MIT" || "Unlicensed"){
   return badges[license]
   };
 }
@@ -40,7 +41,7 @@ function generateMarkdown(data) {
   
 ${data.description}
   
-## Table of Contents (Optional)
+## Table of Contents 
 
 * [Description](#description)
 * [Installation](#installation)
@@ -49,7 +50,7 @@ ${data.description}
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [Questions](#questions)
-* [Credit](#credit)
+* [Credits](#credits)
 
 
 ## Installation
@@ -64,7 +65,8 @@ ${data.usage}
 ## License
 
 This license is covered under: ${renderLicenseBadge
-(data.license) + renderLicenseLink(data.license)}
+
+(data.license)  +  renderLicenseLink(data.license)}
 
 
 ## Contributing
@@ -77,16 +79,20 @@ ${data.testing}
 
 ## Questions
 
-If you have any questions, I can be reached by email
+If you have any questions, I can be reached by following the link to my github profile
 [${data.email}](mailto:${data.email}) 
-or 
-follow the 
+Follow the 
 link to my github profile
 [${data.github}](https://github.com/${data.github}).
 
-## Contributors
+## Credits 
+ 
+ ${data.credits}
 
- Credits: ${data.contributors}
+ 
+
+ 
+ (https://github.com/${data.github}).
 
 
 `;
