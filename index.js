@@ -76,6 +76,14 @@ const questions = [
         return false;
       }
     },
+    validate: userinput => {
+      if (userinput) {
+          return true;
+      } else {
+          console.log('Please enter steps required to install your project!')
+          return false;
+      }
+  }
   },
   {
     type: "confirm",
@@ -96,6 +104,14 @@ const questions = [
         return false;
       }
     },
+    validate: userinput => {
+      if (userinput) {
+          return true;
+      } else {
+          console.log('Please give instructions on how to use your project!')
+          return false;
+      }
+  }
   },
   {
     type: "confirm",
@@ -115,6 +131,14 @@ const questions = [
         return false;
       }
     },
+    validate: userinput => {
+      if (userinput) {
+          return true;
+      } else {
+          console.log('What are the contribution guidelines!')
+          return false;
+      }
+  }
   },
   {
     type: "confirm",
@@ -131,10 +155,17 @@ const questions = [
       if (confirmTesting) {
         return true;
       } else {
-        console.log("Please enter how to test the application.")
         return false;
       }
     },
+    validate: userinput => {
+      if (userinput) {
+          return true;
+      } else {
+          console.log('Please enter the command to run your test!')
+          return false;
+      }
+  }
   },
   {
     type: "confirm",
@@ -151,7 +182,7 @@ const questions = [
       if (confirmQuestions) {
         return true;
       } else {
-        return "";
+        return false;
       }
     },
   },
@@ -163,9 +194,17 @@ const questions = [
       if (confirmEmail) {
         return true;
       } else {
-        return false;
+       return false;
       }
     },
+    validate: userinput => {
+      if (userinput) {
+          return true;
+      } else {
+          console.log('Please enter an email!')
+          return false;
+      }
+  }
   },
   {
     type: "list",
@@ -179,6 +218,7 @@ const questions = [
     message:
       'Would you like to add credits for the project?',
     default: false,
+    
   },
   {
     type: "input",

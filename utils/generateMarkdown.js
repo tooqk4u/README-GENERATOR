@@ -12,7 +12,8 @@ const licenseLinks = {
   "MIT": "https://opensource.org/licenses/MIT",
   "Apache": "https://opensource.org/licenses/Apache-2.0",
   "Mozilla": "https://opensource.org/licenses/MPL-2.0",
-  "Unlicensed": "http://unlicense.org/"
+  "Unlicensed": "http://unlicense.org/",
+  "none": ""
 };
 
 
@@ -26,6 +27,7 @@ function renderLicenseBadge(license) {
   return badges[license]
   };
 }
+renderLicenseBadge()
 
 // functions to create a license link
 function renderLicenseLink(license) {
@@ -64,9 +66,7 @@ ${data.usage}
 
 ## License
 
-This license is covered under: ${renderLicenseBadge
-
-(data.license)  +  renderLicenseLink(data.license)}
+This license is covered under: ${(data.license)  +  renderLicenseLink(data.license)}
 
 
 ## Contributing
@@ -79,20 +79,20 @@ ${data.testing}
 
 ## Questions
 
-If you have any questions, I can be reached by following the link to my github profile
-[${data.email}](mailto:${data.email}) 
-Follow the 
-link to my github profile
+Contact information for questions:
+
+If you have any questions follow the link to my github profile
+
 [${data.github}](https://github.com/${data.github}).
+
+or 
+
+I can be reached at:
+[${data.email}](mailto:${data.email}) 
 
 ## Credits 
  
  ${data.credits}
-
- 
-
- 
- (https://github.com/${data.github}).
 
 
 `;
