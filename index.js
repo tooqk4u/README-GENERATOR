@@ -3,6 +3,12 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
+console.log(`
+====================================================
+Answer these questions to generate a new ReadME file
+====================================================
+`);
+
 //  array of questions for user input
 const questions = [
   {
@@ -32,19 +38,18 @@ const questions = [
     },
   },
   {
-    type: 'input',
-    name: 'link',
-    message: 'Enter the GitHub link to your application.(Required)',
-    validate: linkInput => {
-        if (linkInput){
-            return true
-        } else {
-            console.log('Please enter a GitHub link.')
-            return false
-        }
-    }
-
-},
+    type: "input",
+    name: "link",
+    message: "Enter the GitHub link to your application.(Required)",
+    validate: (linkInput) => {
+      if (linkInput) {
+        return true;
+      } else {
+        console.log("Please enter a GitHub link.");
+        return false;
+      }
+    },
+  },
   {
     type: "input",
     name: "description",
@@ -76,14 +81,14 @@ const questions = [
         return false;
       }
     },
-    validate: userinput => {
+    validate: (userinput) => {
       if (userinput) {
-          return true;
+        return true;
       } else {
-          console.log('Please enter steps required to install your project!')
-          return false;
+        console.log("Please enter steps required to install your project!");
+        return false;
       }
-  }
+    },
   },
   {
     type: "confirm",
@@ -96,7 +101,7 @@ const questions = [
     type: "input",
     name: "usage",
     message:
-      "Provide instructions and examples on how to use your project. Include scrrenshots as needed.(Required)",
+      "Provide instructions and examples on how to use your project. Include screenshots as needed. (Required)",
     when: ({ confirmUsage }) => {
       if (confirmUsage) {
         return true;
@@ -104,14 +109,14 @@ const questions = [
         return false;
       }
     },
-    validate: userinput => {
+    validate: (userinput) => {
       if (userinput) {
-          return true;
+        return true;
       } else {
-          console.log('Please give instructions on how to use your project!')
-          return false;
+        console.log("Please give instructions on how to use your project!");
+        return false;
       }
-  }
+    },
   },
   {
     type: "confirm",
@@ -123,7 +128,8 @@ const questions = [
   {
     type: "input",
     name: "contributing",
-    message: "What are the contribution guidelines for your project? (Required)",
+    message:
+      "What are the contribution guidelines for your project? (Required)",
     when: ({ confirmContributing }) => {
       if (confirmContributing) {
         return true;
@@ -131,14 +137,14 @@ const questions = [
         return false;
       }
     },
-    validate: userinput => {
+    validate: (userinput) => {
       if (userinput) {
-          return true;
+        return true;
       } else {
-          console.log('What are the contribution guidelines!')
-          return false;
+        console.log("What are the contribution guidelines!");
+        return false;
       }
-  }
+    },
   },
   {
     type: "confirm",
@@ -158,14 +164,14 @@ const questions = [
         return false;
       }
     },
-    validate: userinput => {
+    validate: (userinput) => {
       if (userinput) {
-          return true;
+        return true;
       } else {
-          console.log('Please enter the command to run your test!')
-          return false;
+        console.log("Please enter the command to run your test!");
+        return false;
       }
-  }
+    },
   },
   {
     type: "confirm",
@@ -178,7 +184,7 @@ const questions = [
     type: "confirm",
     name: "confirmEmail",
     message: "Would you like include your email?",
-    when: ({ confirmQuestions }) => {
+    when: ({confirmQuestions }) => {
       if (confirmQuestions) {
         return true;
       } else {
@@ -190,41 +196,39 @@ const questions = [
   {
     type: "input",
     name: "email",
-    when: ({ confirmEmail }) => {
+    when: ({confirmEmail }) => {
       if (confirmEmail) {
         return true;
       } else {
-       return false;
+        return false;
       }
     },
-    validate: userinput => {
+    validate: (userinput) => {
       if (userinput) {
-          return true;
+        return true;
       } else {
-          console.log('Please enter an email!')
-          return false;
+        console.log("Please enter an email!");
+        return false;
       }
-  }
+    },
   },
   {
     type: "list",
     name: "license",
     message: "Choose your license from the list below:",
-    choices: ["Apache", "Mozilla", "MIT","Unlicensed", "none"],
+    choices: ["Mozilla","MIT","Unlicensed", "Apache", "none"],
   },
   {
     type: "confirm",
     name: "confirmContributors",
-    message:
-      'Would you like to add credits for the project?',
-    default: false,
-    
+    message: "Would you like to add credits for the project?",
+    default: true,
   },
   {
     type: "input",
     name: "credits",
-    message: "Enter a name to give the person credit for contributing.",
-    when: ({ confirmContributors }) => {
+    message: "Please list names to give people credit for contributing.",
+    when: ({confirmContributors }) => {
       if (confirmContributors) {
         return true;
       } else {
@@ -234,22 +238,20 @@ const questions = [
   },
 ];
 
-
 //  function to write README file
 function writeToFile(fileName, data) {
   fs.writeFileSync(fileName, data);
-  console.log("README completed!")
+  console.log(
+    "README completed! Please look in the readme-output folder for sample readme"
+  );
 }
-
 
 // function to initialize app
 const init = () => {
   inquirer.prompt(questions).then((data) => {
-    writeToFile("README.md", generateMarkdown(data))
+    writeToFile("./readme-output/README.md", generateMarkdown(data));
   });
 };
 
 // function call to initialize app
-init()
-
-
+init();
