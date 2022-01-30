@@ -20,7 +20,8 @@ A node app for generating project readme files.
 ---
 
 ## Built With
-
+ Node.js
+ JavaScript
 ---
 ---
 
@@ -57,13 +58,14 @@ To use ReadMe Generator, first open your terminal to the root directory that con
 ---
 
 ## Tests
-
+NA
 ---
 ---
 
 
 ## Credits
-
+Shelley Soucie
+Phillip Loy
 ---
 ---
     
