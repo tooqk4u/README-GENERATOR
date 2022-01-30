@@ -64,14 +64,15 @@ NA
 
 
 ## Credits
-Shelley Soucie
-Phillip Loy
+
 ---
 ---
     
 Shelley Soucie
 
 [tooqk4u](https://github.com/tooqk4u)
+
+Phillip Loy (Tutor)
 
 
 
