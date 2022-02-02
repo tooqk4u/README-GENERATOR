@@ -8,7 +8,12 @@ https://tooqk4u.github.io/Weather-Dashboard/
 
 ## Description 
   
-This project takes a users input of a city name in the search box and generates weather data for that city. The data includes temperature, humidity, wind speed and ultra violet light index (UV). The UV index produces a number indicating the UV leval and is color coded to represent good (green), (fair), and bad (red) conditions. Furthermore when the current weather is generated a 5-day forecast is also created on the screen. Each time a user inputs a city name it is saved to local data and appears under the search box. If the user so chooses they may click on any of their previous searches to view the current and 5-day weather conditions for that city again. The application can be viewed on any screensize and will render appropriately.
+This project takes a users input of a city name in the search box and generates weather data for that city. The data includes 
+temperature, humidity, wind speed and ultra violet light index (UV). The UV index produces a number indicating the UV leval 
+and is color coded to represent good (green), (fair), and bad (red) conditions. Furthermore when the current weather is 
+generated a 5-day forecast is also created on the screen. Each time a user inputs a city name it is saved to local data and 
+appears under the search box. If the user so chooses they may click on any of their previous searches to view the current and 
+5-day weather conditions for that city again. The application can be viewed on any screensize and will render appropriately.
 
 ---
   
