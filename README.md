@@ -54,6 +54,9 @@ To use ReadMe Generator, first open your terminal to the root directory that con
 
 ![picture of README questionaire](./images/README-SCREENSHOT.PNG)
 
+This is what is generated:
+![picture of README questionaire](./images/Capture.PNG)
+
 
 [Back to Contents](#table-of-contents)
 
